@@ -1,0 +1,212 @@
+[
+  {
+    "step": "Read Spring Boot project dependencies and analyze backend boilerplate structure",
+    "sub_steps": [
+      "Open /home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/pom.xml and review dependencies to ensure availability for Spring Web, JPA, Validation, MySQL, and Lombok.",
+      "Review the generated package structure and resource configuration files (application.properties).",
+      "Identify paths for models, repositories, services, controllers, exception handling."
+    ],
+    "files_to_add": [],
+    "files_to_edit": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/pom.xml",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/resources/application.properties"
+    ],
+    "description": "This step ensures familiarity with project structure and available backend dependencies, validates that all required libraries are present for subsequent implementation (entities, validation, persistence, REST, etc)."
+  },
+  {
+    "step": "Implement Data Models (Entities) for Customer and Claim",
+    "sub_steps": [
+      "Create Customer and Claim entities in /model with appropriate JPA annotations (@Entity, @Id, relationships).",
+      "Add validation annotations per requirements (e.g., @NotNull, @Email, @Positive).",
+      "Claim references Customer via ManyToOne (customerId as foreign key).",
+      "Include Lombok annotations (@Data, @NoArgsConstructor, @AllArgsConstructor) where suitable."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/model/Customer.java",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/model/Claim.java"
+    ],
+    "files_to_edit": [],
+    "description": "Establishes persistent data models with all required fields and relationships. Sets up validation to ensure reliable data storage and input checking as per requirements. Supports test cases such as creating, fetching, and relating customers and claims."
+  },
+  {
+    "step": "Create Repositories for Customer and Claim",
+    "sub_steps": [
+      "Define repository interfaces for Customer and Claim extending JpaRepository.",
+      "Add custom query methods as needed (e.g. for finding claims by customerId)."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/repository/CustomerRepository.java",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/repository/ClaimRepository.java"
+    ],
+    "files_to_edit": [],
+    "description": "Allows data access and persistence for business services and controllers through simple repository pattern."
+  },
+  {
+    "step": "Implement Exception Handling Infrastructure",
+    "sub_steps": [
+      "Create global exception handler using @ControllerAdvice.",
+      "Define custom exceptions: ResourceNotFoundException, ValidationException.",
+      "Configure error responses (message, status) for validation, not found, and generic errors."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/exception/GlobalExceptionHandler.java",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/exception/ResourceNotFoundException.java",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/exception/ValidationException.java"
+    ],
+    "files_to_edit": [],
+    "description": "Provides robust, user-friendly error handling for REST APIs, crucial for satisfying validation and resource-not-found requirements and supporting the error scenarios tested in test cases."
+  },
+  {
+    "step": "Develop Service Layer for Business Logic (CustomerService and ClaimService)",
+    "sub_steps": [
+      "Implement CustomerService for create, fetchAll, fetchById, and validation logic.",
+      "Implement ClaimService for submit, fetchAll, fetchById, fetchByCustomer, and status-update logic.",
+      "Enforce input validation, check foreign key relationships (customer existence), manage status transitions and date fields."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/service/CustomerService.java",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/service/ClaimService.java"
+    ],
+    "files_to_edit": [],
+    "description": "Centralizes business logic, ensures constraints and validation are enforced for API endpoints to support positive and negative test cases."
+  },
+  {
+    "step": "Create Controllers with All Required REST Endpoints",
+    "sub_steps": [
+      "Develop CustomerController with POST /api/customers, GET /api/customers, GET /api/customers/{customerId}.",
+      "Develop ClaimController with POST /api/claims, GET /api/claims, GET /api/claims/{claimId}, GET /api/customers/{customerId}/claims, PUT /api/claims/{claimId}/status.",
+      "Ensure correct mapping, request/response structure, validation and error responses.",
+      "Document all endpoints with proper annotations for clarity."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/controller/CustomerController.java",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/controller/ClaimController.java"
+    ],
+    "files_to_edit": [],
+    "description": "Implements all required endpoints for customer and claim management. REST endpoints must support all described functionality and support error handling for frontend and testing."
+  },
+  {
+    "step": "Configure CORS to Allow Frontend Integration",
+    "sub_steps": [
+      "Update main application class or create a WebConfig class to allow CORS from http://localhost:3000.",
+      "Ensure all API controllers permit cross-origin requests for development."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/WebConfig.java"
+    ],
+    "files_to_edit": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/main/java/com/examly/springapp/InsuranceClaimProcessingSystemApplication.java"
+    ],
+    "description": "Allows smooth development and communication between frontend (React) and backend (Spring Boot). Required for React API calls to be permitted."
+  },
+  {
+    "step": "Implement All Backend JUnit Test Cases (Controllers/Service Layer)",
+    "sub_steps": [
+      "For each test from the testcases JSON, create/modify tests in appropriate *Test.java files:",
+      "testCreateCustomer - test POST /api/customers for success, required validation, 201 response, correct fields.",
+      "testGetCustomerById - test GET /api/customers/{id} for existing/non-existent IDs, expect 200 or 404.",
+      "testSubmitClaim - test POST /api/claims for success/validation/error, status/submissionDate defaults.",
+      "testUpdateClaimStatus - test PUT /api/claims/{claimId}/status, test valid and invalid status, 400/404 as applicable.",
+      "testGetCustomerClaims - test GET /api/customers/{customerId}/claims for correct claim list and error on not found.",
+      "Apply mocking for services/repositories as needed.",
+      "Reference the corresponding model, repository, service, controller files for each test.",
+      "Ensure integration and negative scenario coverage."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/test/java/com/examly/springapp/controller/CustomerControllerTest.java",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/test/java/com/examly/springapp/controller/ClaimControllerTest.java"
+    ],
+    "files_to_edit": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/springapp/src/test/java/com/examly/springapp/InsuranceClaimProcessingSystemApplicationTests.java"
+    ],
+    "description": "Ensures each backend endpoint behaves as required, validations and error handling are correct, and all controller logic is robust. Supports all JUnit scenarios from testcases JSON."
+  },
+  {
+    "step": "Compile and Run Backend (Spring Boot) Tests",
+    "sub_steps": [
+      "Compile with mvn clean compile -q -Dspring.main.banner-mode=off.",
+      "Run tests with mvn test -q -Dspring.main.banner-mode=off and ensure all tests pass."
+    ],
+    "files_to_add": [],
+    "files_to_edit": [],
+    "description": "Validates Spring Boot code compiles and passes all required JUnit test cases."
+  },
+  {
+    "step": "Read and analyze React frontend dependencies and structure",
+    "sub_steps": [
+      "Review /home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/package.json to check dependencies (React, react-router-dom, etc).",
+      "Review boilerplate structure to determine where to add components (src/components) and utility files."
+    ],
+    "files_to_add": [],
+    "files_to_edit": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/package.json"
+    ],
+    "description": "Ensures correct setup for adding UI components, routing, style and service utilities, and test files."
+  },
+  {
+    "step": "Implement UI and API Services: Customer and Claim Components",
+    "sub_steps": [
+      "Create components: CustomerRegistration, CustomerList, CustomerDetail, ClaimSubmission, ClaimList, ClaimDetail in src/components.",
+      "Each component must follow requirements: field presence, validation, tables/lists, filter and detail display, update mechanics.",
+      "Create corresponding CSS and utility files as needed (button classes, error handling, general layout).",
+      "Create and use CustomerService and ClaimService inside src/utils/ for API interactions (fetch, create, update).",
+      "Integrate error handling, loading state, and message display as specified.",
+      "Use React Router for navigation (add routes to App.js as per requirements).",
+      "Ensure required style guidelines, form/input features, and interaction design are implemented."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerRegistration.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerList.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerDetail.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimSubmission.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimList.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimDetail.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/utils/CustomerService.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/utils/ClaimService.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerRegistration.css",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerList.css",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerDetail.css",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimSubmission.css",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimList.css",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimDetail.css"
+    ],
+    "files_to_edit": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/App.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/App.css"
+    ],
+    "description": "Delivers all functional frontend UI for customer and claim workflows, with correct API integration, React Router setup, validation, and style."
+  },
+  {
+    "step": "Implement All Jest Test Cases for React Components",
+    "sub_steps": [
+      "For each test case from the testcases JSON, create a corresponding *.test.js file:",
+      "renderCustomerRegistrationForm - tests presence and validation of registration form, mocking API call.",
+      "renderClaimListComponent - tests claim list table, initial rendering, filter, and navigation to detail component.",
+      "renderClaimDetailComponent - tests claim details, status update dropdown, API call, and status change feedback.",
+      "renderCustomerDetailWithClaims - tests customer detail page, claims list, new claim navigation.",
+      "Use RTL best practices: data-testid attributes, minimal mocking, error/message expectation.",
+      "Ensure no manual cleanup, proper isolation, and only required assertions.",
+      "Each test should reference its respective component and any used utility function."
+    ],
+    "files_to_add": [
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerRegistration.test.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimList.test.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/ClaimDetail.test.js",
+      "/home/coder/project/workspace/question_generation_service/solutions/9a8816a7-f944-417c-b621-880c521e5fc9/reactapp/src/components/CustomerDetail.test.js"
+    ],
+    "files_to_edit": [],
+    "description": "Ensures UI components are tested for all required behaviors and edge cases following the provided test expectations using Jest and React Testing Library."
+  },
+  {
+    "step": "Lint, Compile, and Test React Frontend",
+    "sub_steps": [
+      "Run npm install to ensure dependencies are present.",
+      "Compile with npm run build to catch syntax or structural errors.",
+      "Run npx eslint src/ --fix to auto-fix lint errors.",
+      "Run npm run test:ci to execute all Jest tests and confirm required behaviors are present."
+    ],
+    "files_to_add": [],
+    "files_to_edit": [],
+    "description": "Validates that the React frontend builds, passes all style and code standards, and passes all tests derived from the test cases JSON."
+  }
+]

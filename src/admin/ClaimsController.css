@@ -1,0 +1,227 @@
+.claims-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .claims-header {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+    }
+
+    .filter-section {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .filter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .filter-label {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #495057;
+        font-weight: 500;
+        }
+
+        .filter-input {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .filter-select {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: white;
+        }
+
+        .filter-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        }
+
+        .action-button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s;
+        }
+
+        .primary-button {
+        background-color: #3498db;
+        color: white;
+        }
+
+        .primary-button:hover {
+        background-color: #2980b9;
+        }
+
+        .secondary-button {
+        background-color: #6c757d;
+        color: white;
+        }
+
+        .secondary-button:hover {
+        background-color: #5a6268;
+        }
+
+        .claims-table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        overflow: hidden;
+        }
+
+        .claims-table th {
+        background-color: #3498db;
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 500;
+        }
+
+        .claims-table td {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        }
+
+        .claims-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+        }
+
+        .claims-table tr:hover {
+        background-color: #f1f1f1;
+        }
+
+        .status-cell {
+        font-weight: 500;
+        }
+
+        .status-IN_REVIEW {
+        color: #ffc107;
+        }
+
+        .status-APPROVED {
+        color: #28a745;
+        }
+
+        .status-REJECTED {
+        color: #dc3545;
+        }
+
+        .form-section {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-title {
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        }
+
+        .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1rem;
+        }
+
+        .form-group {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .form-label {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #495057;
+        }
+
+        .form-input {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        }
+
+        .form-select {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: white;
+        }
+
+        .form-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        }
+
+        .edit-status {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        }
+
+        .status-input {
+        padding: 0.5rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        flex-grow: 1;
+        }
+
+        .table-actions {
+        display: flex;
+        gap: 0.5rem;
+        }
+
+        .danger-button {
+        background-color: #e74c3c;
+        color: white;
+        }
+
+        .danger-button:hover {
+        background-color: #c0392b;
+        }
+
+        .success-button {
+        background-color: #28a745;
+        color: white;
+        }
+
+        .success-button:hover {
+        background-color: #218838;
+        }

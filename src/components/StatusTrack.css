@@ -1,0 +1,263 @@
+
+.status-track-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .status-track-header {
+        margin-bottom: 2rem;
+        text-align: center;
+        }
+
+        .status-track-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .status-track-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            }
+
+            .alert-message {
+                padding: 1rem;
+                border-radius: 8px;
+                margin-bottom: 2rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .alert-message.error {
+                background: #f8d7da;
+                color: #721c24;
+                border-left: 4px solid #dc3545;
+            }
+
+            .alert-message.success {
+                background: #d4edda;
+                color: #155724;
+                border-left: 4px solid #28a745;
+            }
+
+            .filters-container {
+                display: flex;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+                flex-wrap: wrap;
+                }
+
+                .search-filter, .status-filter {
+                    display: flex;
+                    align-items: center;
+                    background: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    padding: 0.5rem 1rem;
+                    flex: 1;
+                    min-width: 250px;
+                    }
+
+                    .search-icon, .filter-icon {
+                    color: #7f8c8d;
+                    margin-right: 0.75rem;
+                    }
+
+                    .search-input, .filter-select {
+                        border: none;
+                        outline: none;
+                        width: 100%;
+                        padding: 0.5rem 0;
+                        font-size: 1rem;
+                        background: transparent;
+                        }
+
+                        .filter-select {
+                        cursor: pointer;
+                        }
+
+                        .loading-spinner {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 3rem;
+                        color: #7f8c8d;
+                        }
+
+                        .loading-spinner .spinner {
+                        width: 40px;
+                        height: 40px;
+                        border: 4px solid rgba(0, 0, 0, 0.1);
+                        border-left-color: #3498db;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                        margin-bottom: 1rem;
+                        }
+
+                        @keyframes spin {
+                        to { transform: rotate(360deg); }
+                        }
+
+                        .empty-state {
+                        text-align: center;
+                        padding: 3rem;
+                        background: #f8f9fa;
+                        border-radius: 8px;
+                        margin-top: 2rem;
+                        }
+
+                        .empty-icon {
+                        font-size: 3rem;
+                        color: #bdc3c7;
+                        margin-bottom: 1rem;
+                        }
+
+                        .empty-state h3 {
+                        color: #2c3e50;
+                        margin-bottom: 0.5rem;
+                        }
+
+                        .empty-state p {
+                        color: #7f8c8d;
+                        margin-bottom: 0;
+                        }
+
+                        .claims-table-container {
+                        background: white;
+                        border-radius: 12px;
+                        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                        overflow: hidden;
+                        }
+
+                        .claims-table-scroll {
+                        overflow-x: auto;
+                        }
+
+                        .claims-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        }
+
+                        .claims-table thead {
+                        background: linear-gradient(135deg, #3498db, #2c3e50);
+                        color: white;
+                        }
+
+                        .claims-table th {
+                        padding: 1rem;
+                        text-align: left;
+                        font-weight: 600;
+                        position: sticky;
+                        top: 0;
+                        }
+
+                        .claims-table tbody tr {
+                        border-bottom: 1px solid #eee;
+                        animation: fadeIn 0.5s ease-out forwards;
+                        opacity: 0;
+                        }
+
+                        @keyframes fadeIn {
+                        to { opacity: 1; }
+                        }
+
+                        .claims-table tbody tr:hover {
+                        background: #f8f9fa;
+                        }
+
+                        .claims-table td {
+                        padding: 1rem;
+                        vertical-align: middle;
+                        }
+
+                        .amount-cell, .date-cell, .description-content {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        }
+
+                        .cell-icon {
+                        color: #7f8c8d;
+                        flex-shrink: 0;
+                        }
+
+                        .description-cell {
+                        max-width: 250px;
+                        }
+
+                        .description-content {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        }
+
+                        .bg-green-100 { background: #d4edda; }
+                        .text-green-800 { color: #155724; }
+                        .bg-red-100 { background: #f8d7da; }
+                        .text-red-800 { color: #721c24; }
+                        .bg-yellow-100 { background: #fff3cd; }
+                        .text-yellow-800 { color: #856404; }
+                        .bg-blue-100 { background: #cce5ff; }
+                        .text-blue-800 { color: #004085; }
+                        .bg-gray-100 { background: #f8f9fa; }
+                        .text-gray-800 { color: #343a40; }
+
+                        @media (max-width: 768px) {
+                        .status-track-container {
+                        padding: 1rem;
+                        }
+
+                        .status-track-title {
+                        font-size: 1.5rem;
+                        }
+
+                        .filters-container {
+                        flex-direction: column;
+                        gap: 1rem;
+                        }
+
+                        .search-filter, .status-filter {
+                        width: 100%;
+                        }
+
+                        .claims-table th, 
+                        .claims-table td {
+                        padding: 0.75rem;
+                        font-size: 0.9rem;
+                        }
+                        }
+
+                        @media (max-width: 480px) {
+                        .status-track-header {
+                        margin-bottom: 1.5rem;
+                        }
+
+                        .status-track-title {
+                        font-size: 1.3rem;
+                        margin-bottom: 0.25rem;
+                        }
+
+                        .status-track-subtitle {
+                        font-size: 0.9rem;
+                        }
+
+                        .claims-table th {
+                        padding: 0.5rem;
+                        font-size: 0.8rem;
+                        }
+
+                        .claims-table td {
+                        padding: 0.5rem;
+                        font-size: 0.8rem;
+                        }
+
+                        .cell-icon {
+                        display: none;
+                        }
+                        }

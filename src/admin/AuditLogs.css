@@ -1,0 +1,126 @@
+.audit-logs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .audit-logs-header {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+    }
+
+    .filter-section {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1rem;
+        }
+
+        .filter-group {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .filter-label {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #495057;
+        font-weight: 500;
+        }
+
+        .filter-input {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+        }
+
+        .filter-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        }
+
+        .action-button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s;
+        }
+
+        .primary-button {
+        background-color: #3498db;
+        color: white;
+        }
+
+        .primary-button:hover {
+        background-color: #2980b9;
+        }
+
+        .secondary-button {
+        background-color: #6c757d;
+        color: white;
+        }
+
+        .secondary-button:hover {
+        background-color: #5a6268;
+        }
+
+        .audit-logs-table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        }
+
+        .audit-logs-table th {
+        background-color: #3498db;
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 500;
+        }
+
+        .audit-logs-table td {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        }
+
+        .audit-logs-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+        }
+
+        .audit-logs-table tr:hover {
+        background-color: #f1f1f1;
+        }
+
+        .no-logs {
+        text-align: center;
+        padding: 2rem;
+        color: #6c757d;
+        font-style: italic;
+        }
+
+        .action-cell {
+        text-transform: capitalize;
+        }
+
+        .timestamp-cell {
+        white-space: nowrap;
+        }

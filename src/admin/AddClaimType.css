@@ -1,0 +1,131 @@
+
+.claim-types-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.claim-types-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.claim-types-title {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.add-claim-type {
+display: flex;
+gap: 1rem;
+margin-bottom: 2rem;
+}
+
+.add-claim-type input {
+padding: 0.5rem 1rem;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 1rem;
+width: 300px;
+transition: border-color 0.3s;
+}
+
+.add-claim-type input:focus {
+outline: none;
+border-color: #3498db;
+}
+
+.action-button {
+padding: 0.5rem 1rem;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-weight: 500;
+transition: all 0.2s;
+}
+
+.primary-button {
+background-color: #3498db;
+color: white;
+}
+
+.primary-button:hover {
+background-color: #2980b9;
+}
+
+.secondary-button {
+background-color: #f1f1f1;
+color: #333;
+}
+
+.secondary-button:hover {
+background-color: #e0e0e0;
+}
+
+.danger-button {
+background-color: #e74c3c;
+color: white;
+}
+
+.danger-button:hover {
+background-color: #c0392b;
+}
+
+.filter-section {
+margin-bottom: 1.5rem;
+}
+
+.filter-section input {
+padding: 0.5rem 1rem;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 1rem;
+width: 100%;
+max-width: 400px;
+}
+
+.claim-types-table {
+width: 100%;
+border-collapse: collapse;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+overflow: hidden;
+}
+
+.claim-types-table th,
+.claim-types-table td {
+padding: 1rem;
+text-align: left;
+border-bottom: 1px solid #eee;
+}
+
+.claim-types-table th {
+background-color: #3498db;
+color: white;
+font-weight: 500;
+}
+
+.claim-types-table tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.claim-types-table tr:hover {
+background-color: #f1f1f1;
+}
+
+.edit-input {
+padding: 0.5rem;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 1rem;
+width: 100%;
+}
+
+.button-group {
+display: flex;
+gap: 0.5rem;
+}

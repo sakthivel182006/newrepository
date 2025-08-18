@@ -6,19 +6,28 @@ import Claims from './components/Claims';
 import SubmitClaim from './components/SubmitClaim';
 import CustomerRegistration from './components/CustomerRegistration';
 import Profile from './components/Profile';
+import './App.css';
 
-const App = () => {
+const App3 = () => {
+const handleRemoveEmail = () => {
+localStorage.removeItem('loggedInEmail');
+alert('Logged-in email has been removed');
+};
+
 return (
 <Router>
 <div>
 <nav className="main-nav">
 <Link to="/">Home</Link>
-<Link to="/customers">Customers</Link>
+<Link to="/customers">Admin Customers</Link>
 <Link to="/register">New Customer</Link>
 <Link to="/claims">Claims</Link>
 <Link to="/submit-claim">Submit Claim</Link>
 <Link to="/user-profile">User Profile</Link>
+
+<button onClick={handleRemoveEmail}>loggedinEmail</button>
 </nav>
+
 <main className="app-content">
 <Routes>
 <Route path="/" element={<Home />} />
@@ -34,4 +43,4 @@ return (
 );
 };
 
-export default App;
+export default App3;
