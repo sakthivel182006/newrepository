@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BASE_URL from './config/Backendapi';
 import './AuthForm.css';
-import {QrReader} from "react-qr-reader";
+
 import QrLoginPopup from './components/QrLoginPopup';
 const App2 = ({ onLoginSuccess }) => {
     const [isRegistering, setIsRegistering] = useState(false);
