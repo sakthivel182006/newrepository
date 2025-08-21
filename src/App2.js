@@ -148,8 +148,8 @@ const App2 = ({ onLoginSuccess }) => {
                 setForgotPasswordMessage('Error sending reset instructions. Please try again.');
             }
         } catch (error) {
-            const   errmsg=await response.text();
-            setForgotPasswordMessage('Network error: ' + errmsg);
+           
+            setForgotPasswordMessage('Network error: ' + error);
         }
     };
 
