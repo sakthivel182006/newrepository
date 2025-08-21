@@ -138,7 +138,7 @@ const App2 = ({ onLoginSuccess }) => {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/users/password/reset/${encodeURIComponent(forgotPasswordEmail)}`, {
+            const response = await fetch(`${BASE_URL}/api/users/password/reset/${encodeURIComponent(forgotPasswordEmail)}`, {
                 method: 'POST'
             });
 
@@ -148,7 +148,8 @@ const App2 = ({ onLoginSuccess }) => {
                 setForgotPasswordMessage('Error sending reset instructions. Please try again.');
             }
         } catch (error) {
-            setForgotPasswordMessage('Network error: ' + error.message);
+            const   errmsg=await response.text();
+            setForgotPasswordMessage('Network error: ' + errmsg);
         }
     };
 

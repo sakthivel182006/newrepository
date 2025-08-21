@@ -12,6 +12,8 @@ import DocumentsUpload from './components/DocumentsUpload';
 import StatusTrack from './components/StatusTrack';
 import ApprovedClaims from './components/ApprovedClaims';
 import './Appuser.css';
+import Settings from './Settings';
+import Transferamountdetails from './components/Transferamountdetails';
 
 const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -51,7 +53,7 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
                         onClick={() => setSidebarOpen(prev => !prev)}
 
                     >
-                        {sidebarOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+                        {sidebarOpen ? <FiX size={30} /> : <FiMenu size={30} />}
                     </button>
 
 
@@ -90,7 +92,7 @@ nav-link ${location.pathname === link.path ? "active" : ""}`}
                         onClick={() => setUserDropdownOpen(!userDropdownOpen)}
                     >
                         <img
-                            src="https://randomuser.me/api/portraits/men/32.jpg"
+                            src=""
                             alt="User"
                             className="user-avatar" />
                         <span className="user-name">John Doe</span>
@@ -151,30 +153,25 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             title: "Insurance",
             icon: <FiShield />,
             path: "/insurancepolicy",
-            submenu: [
-                { title: "Available Policies", path: "/insurancepolicy" },
-                { title: "My Policies", path: "/mypolicies" },
-                { title: "Policy Claims", path: "/policyclaims" }
-            ]
+            submenu: []
         },
         {
             title: "Documents",
             icon: <FiUpload />,
             path: "/documentsupload",
-            submenu: [
-                { title: "Upload Documents", path: "/documentsupload" },
-                { title: "Document Status", path: "/documentstatus" }
-            ]
+            submenu: []
         },
         {
             title: "Claims",
             icon: <FiCheckCircle />,
             path: "/approvedclaims",
-            submenu: [
-                { title: "Submit Claim", path: "/submit-claim" },
-                { title: "Approved Claims", path: "/approvedclaims" },
-                { title: "Claim Status", path: "/claimstatus" }
-            ]
+            submenu: []
+        },
+        {
+            title: "Transaction",
+            icon: <FiUser />,
+            path: "/amounttransferdetails",
+            submenu: []
         },
         {
             title: "Profile",
@@ -253,7 +250,7 @@ nav-item ${location.pathname === item.path ? 'active' : ''}`}>
 };
 
 const Appuser = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(true);
 
     return (
         <Router>
@@ -274,6 +271,8 @@ const Appuser = () => {
                             <Route path="/claims" element={<Claims />} />
                             <Route path="/submit-claim" element={<SubmitClaim />} />
                             <Route path="/user-profile" element={<Profile />} />
+                            <Route path="/settings" element={<Settings />} />
+                            <Route path="/amounttransferdetails" element={<Transferamountdetails />} />
                         </Routes>
                     </main>
                 </div>

@@ -16,6 +16,7 @@ import AddClaimType from './admin/AddClaimType';
 import UserProfile from './admin/UserProfile';
 import ClaimsController from './admin/ClaimsController';
 import AuditLogs from './admin/AuditLogs';
+import Settings from './Settings';
 
 const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -97,7 +98,7 @@ className="user-button"
 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
 >
 <img
-src="https://randomuser.me/api/portraits/men/32.jpg"
+src=""
 alt="User"
 className="user-avatar"/>
 <span className="user-name">John Doe</span>
@@ -107,7 +108,7 @@ className="user-avatar"/>
 <div className={`user-dropdown ${userDropdownOpen ? "open" : ""}`}>
 <div className="user-info">
 <img
-src="https://randomuser.me/api/portraits/men/32.jpg"
+src=""
 alt="User"
 className="dropdown-avatar"/>
 <div>
@@ -248,7 +249,7 @@ onClick={() => setSidebarOpen(false)}
 <div className="sidebar-footer">
 <div className="user-profile">
 <img 
-src="https://randomuser.me/api/portraits/men/32.jpg" 
+src="" 
 alt="User" 
 className="sidebar-avatar"/>
 <div>
@@ -280,6 +281,7 @@ return (
 <Route path="/claimscontroller" element={<ClaimsController />} />
 <Route path="/auditlogs" element={<AuditLogs />} />
 <Route path="/profilepage" element={<Profile />} />
+<Route path="/settings" element={<Settings />} />
 
 </Routes>
 </main>

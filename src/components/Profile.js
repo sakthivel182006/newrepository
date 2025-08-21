@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import BASE_URL from '../config/Backendapi';
-
+import './Profile.css';
 const Profile = () => {
 const { id } = useParams();
 const [userDetails, setUserDetails] = useState({

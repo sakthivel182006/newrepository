@@ -1,284 +1,473 @@
-
 .approved-claims-container {
-max-width: 1200px;
-margin: 0 auto;
-
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f9f4 0%, #e6f7ee 100%);
+    min-height: 100vh;
 }
 
 .claims-header {
-margin-bottom: 2rem;
-text-align: center;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
 
 .claims-title {
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 2rem;
-color: #2c3e50;
-margin-bottom: 0.5rem;
-font-weight: 700;
+    color: #0e7c5f;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .title-icon {
-margin-right: 0.75rem;
-color: #28a745;
+    font-size: 2rem;
 }
 
 .claims-subtitle {
-color: #7f8c8d;
-font-size: 1.1rem;
-margin-bottom: 0;
+    color: #4a7161;
+    font-size: 1.1rem;
 }
 
-.alert-message {
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
+/* Stats Overview */
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.total-claims .stat-icon {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.total-amount .stat-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.average-amount .stat-icon {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.stat-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #0e7c5f;
+}
+
+.stat-content p {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Controls */
+.controls-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.filter-section, .sort-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h4, .sort-section h4 {
+    color: #0e7c5f;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.filter-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    padding: 10px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #0e7c5f;
+    box-shadow: 0 0 0 3px rgba(14, 124, 95, 0.2);
+}
+
+.sort-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sort-btn {
+    padding: 10px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    border-color: #0e7c5f;
+    color: #0e7c5f;
+}
+
+.sort-btn.active {
+    background: #0e7c5f;
+    color: white;
+    border-color: #0e7c5f;
+}
+
+.sort-icon {
+    color: #9ca3af;
+    transition: color 0.3s ease;
+}
+
+.sort-icon.active {
+    color: white;
+}
+
+/* Claims Grid */
+.claims-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.claim-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid #0e7c5f;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.claim-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e6f7ee;
+}
+
+.claim-id {
+    color: #0e7c5f;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.approved-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: #dcfce7;
+    color: #16a34a;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-icon {
+    font-size: 0.9rem;
+}
+
+.card-body {
+    margin-bottom: 20px;
+}
+
+.claim-detail {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    color: #4a7161;
+}
+
+.claim-detail.description {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detail-icon {
+    margin-right: 10px;
+    color: #0e7c5f;
+    min-width: 20px;
+    margin-top: 2px;
+}
+
+.detail-label {
+    font-weight: 600;
+    margin-right: 8px;
+    color: #0e7c5f;
+    min-width: 100px;
+}
+
+.amount {
+    font-weight: 700;
+    color: #0e7c5f;
+    font-size: 1.1rem;
+}
+
+.card-footer {
+    display: flex;
+    gap: 15px;
+}
+
+.payment-btn, .download-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.payment-btn {
+    background: linear-gradient(135deg, #0e7c5f 0%, #14b87e 100%);
+    color: white;
+}
+
+.payment-btn:hover {
+    background: linear-gradient(135deg, #0c6b4f 0%, #119a6c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(14, 124, 95, 0.3);
+}
+
+.download-btn {
+    background: white;
+    color: #0e7c5f;
+    border: 2px solid #0e7c5f;
+}
+
+.download-btn:hover {
+    background: #f0f9f4;
+    transform: translateY(-2px);
+}
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 8px;
+}
+
+.pagination-btn {
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: #f0f9f4;
+    border-color: #0e7c5f;
+    color: #0e7c5f;
+}
+
+.pagination-btn.active {
+    background: #0e7c5f;
+    color: white;
+    border-color: #0e7c5f;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.results-info {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Alert Messages */
+.alert-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
 }
 
 .alert-message.error {
-    background: #f8d7da;
-    color: #721c24;
-    border-left: 4px solid #dc3545;
+    background: #fee2e2;
+    color: #dc2626;
+    border-left: 4px solid #dc2626;
+}
+
+.alert-message.success {
+    background: #dcfce7;
+    color: #16a34a;
+    border-left: 4px solid #16a34a;
+}
+
+/* Loading and Empty States */
+.loading-spinner {
+    text-align: center;
+    padding: 60px 20px;
+    color: #4a7161;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e6f7ee;
+    border-top: 4px solid #0e7c5f;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: #c8e6d5;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    color: #0e7c5f;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.empty-state p {
+    color: #4a7161;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .approved-claims-container {
+        padding: 15px;
     }
-
-    .alert-message.success {
-        background: #d4edda;
-        color: #155724;
-        border-left: 4px solid #28a745;
-        }
-
-        .loading-spinner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem;
-            color: #7f8c8d;
-            }
-
-            .loading-spinner .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1rem;
-            }
-
-            @keyframes spin {
-            to { transform: rotate(360deg); }
-            }
-
-            .empty-state {
-                text-align: center;
-                padding: 3rem;
-                background: #f8f9fa;
-                border-radius: 8px;
-                margin-top: 2rem;
-                }
-
-                .empty-icon {
-                    font-size: 3rem;
-                    color: #28a745;
-                    margin-bottom: 1rem;
-                    }
-
-                    .empty-state h3 {
-                    color: #2c3e50;
-                    margin-bottom: 0.5rem;
-                    }
-
-                    .empty-state p {
-                    color: #7f8c8d;
-                    margin-bottom: 0;
-                    }
-
-                    .claims-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-                    gap: 1.5rem;
-                    margin-top: 1rem;
-                    }
-
-                    .claim-card {
-                    background: white;
-                    border-radius: 12px;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-                    overflow: hidden;
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    animation: fadeInUp 0.5s ease-out forwards;
-                    opacity: 0;
-                    }
-
-                    @keyframes fadeInUp {
-                    from { 
-                    opacity: 0;
-                    transform: translateY(20px);
-                    }
-                    to { 
-                    opacity: 1;
-                    transform: translateY(0);
-                    }
-                    }
-
-                    .claim-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-                    }
-
-                    .card-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 1.25rem;
-                    background: linear-gradient(135deg, #f0fff4, #e6ffed);
-                    border-bottom: 1px solid #e6ffed;
-                    }
-
-                    .claim-id {
-                    margin: 0;
-                    font-size: 1.25rem;
-                    color: #2c3e50;
-                    }
-
-                    .approved-badge {
-                    display: inline-flex;
-                    align-items: center;
-                    padding: 0.25rem 0.75rem;
-                    border-radius: 50px;
-                    background: #28a745;
-                    color: white;
-                    font-size: 0.85rem;
-                    font-weight: 500;
-                    }
-
-                    .badge-icon {
-                    margin-right: 0.25rem;
-                    font-size: 0.9rem;
-                    }
-
-                    .card-body {
-                    padding: 1.25rem;
-                    }
-
-                    .claim-detail {
-                    display: flex;
-                    align-items: flex-start;
-                    margin-bottom: 0.75rem;
-                    color: #34495e;
-                    }
-
-                    .claim-detail.description {
-                    align-items: flex-start;
-                    }
-
-                    .detail-icon {
-                    margin-right: 0.75rem;
-                    color: #28a745;
-                    flex-shrink: 0;
-                    margin-top: 2px;
-                    }
-
-                    .detail-label {
-                    font-weight: 500;
-                    margin-right: 0.5rem;
-                    min-width: 100px;
-                    }
-
-                    .amount {
-                    font-weight: 600;
-                    color: #28a745;
-                    }
-
-                    .card-footer {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 1rem 1.25rem;
-                    border-top: 1px solid #eee;
-                    }
-
-                    .payment-btn, .download-btn {
-                    display: inline-flex;
-                    align-items: center;
-                    padding: 0.5rem 1rem;
-                    border-radius: 6px;
-                    font-weight: 500;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    border: none;
-                    }
-
-                    .payment-btn {
-                    background: #28a745;
-                    color: white;
-                    }
-
-                    .payment-btn:hover {
-                    background: #218838;
-                    transform: translateY(-2px);
-                    }
-
-                    .download-btn {
-                    background: #f8f9fa;
-                    color: #2c3e50;
-                    border: 1px solid #ddd;
-                    }
-
-                    .download-btn:hover {
-                    background: #e9ecef;
-                    transform: translateY(-2px);
-                    }
-
-                    .btn-icon {
-                    margin-right: 0.5rem;
-                    }
-
-                    @media (max-width: 768px) {
-                    .approved-claims-container {
-                    padding: 1rem;
-                    }
-
-                    .claims-title {
-                    font-size: 1.5rem;
-                    }
-
-                    .claims-grid {
-                    grid-template-columns: 1fr;
-                    }
-
-                    .card-footer {
-                    flex-direction: column;
-                    gap: 0.75rem;
-                    }
-
-                    .payment-btn, .download-btn {
-                    width: 100%;
-                    }
-                    }
-
-                    @media (max-width: 480px) {
-                    .claims-title {
-                    font-size: 1.3rem;
-                    }
-
-                    .claims-subtitle {
-                    font-size: 0.9rem;
-                    }
-
-                    .claim-detail {
-                    flex-direction: column;
-                    gap: 0.25rem;
-                    }
-
-                    .detail-label {
-                    min-width: auto;
-                    margin-right: 0;
-                    }
-                    }
+    
+    .claims-title {
+        font-size: 1.8rem;
+    }
+    
+    .stats-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+    }
+    
+    .sort-buttons {
+        flex-direction: column;
+    }
+    
+    .claims-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-footer {
+        flex-direction: column;
+    }
+    
+    .pagination-container {
+        flex-direction: column;
+    }
+    
+    .pagination-numbers {
+        order: 2;
+    }
+}
